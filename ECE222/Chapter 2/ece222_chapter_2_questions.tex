@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.57in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 2 Questions - Assignment Questions for Week 2}
+
+\subsection*{2.1}
+\begin{verbatim}
+[2.1] [5] <§2.2> For the following C statement, write the corresponding RISC-V 
+assembly code. Assume that the C variables f, g, and h, have already been placed 
+in registers x5, x6, and x7 respectively. Use a minimal number of RISC-V assembly 
+instructions.
+f = g + (h - 5);
+\end{verbatim}
+
+\subsection*{2.2}
+\begin{verbatim}
+[2.2] [5] <§2.2> Write a single C statement that corresponds to the two RISC-V 
+assembly instructions below.
+add f, g, h
+add f, i, f
+\end{verbatim}
+
+\subsection*{2.3}
+\begin{verbatim}
+[2.3] [5] <§§2.2, 2.3> For the following C statement, write the corresponding 
+RISC-V assembly code. Assume that the variables f, g, h, i, and j are assigned to 
+registers x5, x6, x7, x28, and x29, respectively. Assume that the base address 
+of the arrays A and B are in registers x10 and x11, respectively.
+B[8] = A[i - j];
+\end{verbatim}
+
+\subsection*{2.4}
+\begin{verbatim}
+[2.4] [10] <§§2.2, 2.3> For the RISC-V assembly instructions below, what is the 
+corresponding C statement? Assume that the variables f, g, h, i, and j are assigned 
+to registers x5, x6, x7, x28, and x29, respectively. Assume that the base 
+address of the arrays A and B are in registers x10 and x11, respectively.
+
+slli x30, x5, 3 // x30 = f*8
+add x30, x10, x30 // x30 = &A[f]
+slli x31, x6, 3 // x31 = g*8
+add x31, x11, x31 // x31 = &B[g]
+ld x5, 0(x30) // f = A[f]
+addi x12, x30, 8
+ld x30, 0(x12)
+add x30, x30, x5
+sd x30, 0(x31)
+\end{verbatim}
+
+\subsection*{2.5}
+\begin{verbatim}
+[2.5] [5] <§2.3> Show how the value 0xabcdef12 would be arranged in memory 
+of a little-endian and a big-endian machine. Assume the data are stored starting at 
+address 0 and that the word size is 4 bytes.
+\end{verbatim}
+
+\subsection*{2.7}
+\begin{verbatim}
+[2.7] [5] <§§2.2, 2.3> Translate the following C code to RISC-V. Assume that the 
+variables f, g, h, i, and j are assigned to registers x5, x6, x7, x28, and x29, 
+respectively. Assume that the base address of the arrays A and B are in registers x10
+and x11, respectively. Assume that the elements of the arrays A and B are 8-byte 
+words:
+B[8] = A[i] + A[j];
+\end{verbatim}
+
+\subsection*{2.10}
+\begin{verbatim}
+Assume that registers x5 and x6 hold the values 0x8000000000000000
+and 0xD000000000000000, respectively.
+\end{verbatim}
+
+\end{document}
