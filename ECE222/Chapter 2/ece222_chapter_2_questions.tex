@@ -59,8 +59,50 @@
     B[8] = A[i] + A[j];
     \end{verbatim}
 
-    \item[\textbf{2.10}] Assume that registers \texttt{x5} and \texttt{x6} hold the values \texttt{0x8000000000000000}
-    and \texttt{0xD000000000000000}, respectively.
+    \item[\textbf{2.10}] \textbf{<§2.4>} Assume that registers \texttt{x5} and \texttt{x6} hold the values \texttt{0x8000000000000000}
+    and \texttt{0xD000000000000000}.
+    \begin{enumerate}
+        \item[\textbf{2.10.1}] What is the value of \texttt{x30} for the following assembly code?
+        \begin{verbatim}
+        add x30, x5, x6
+        \end{verbatim}
+
+        \item[\textbf{2.10.2}] Is the result in \texttt{x30} the desired result, or has there been 
+        overflow?
+
+        \item[\textbf{2.10.3}] For the contents of registers \texttt{x5} and \texttt{x6} as specified above, 
+        what is the value of \texttt{x30} for the following assembly code?
+        \begin{verbatim}
+        sub x30, x5, x6
+        \end{verbatim}
+
+        \item[\textbf{2.10.4}] Is the result in \texttt{x30} the desired result, or has there been 
+        overflow?
+
+        \item[\textbf{2.10.5}] For the contents of registers \texttt{x5} and \texttt{x6} as specified above, 
+        what is the value of \texttt{x30} for the following assembly code?
+        \begin{verbatim}
+        add x30, x5, x6
+        add x30, x30, x5
+        \end{verbatim}
+
+        \item[\textbf{2.10.6}] Is the result in \texttt{x30} the desired result, or has there been 
+        overflow?
+    \end{enumerate}
+
+    \item[\textbf{2.12}] \textbf{<§§2.2, 2.5>} Provide the instruction type and assembly language 
+    instruction for the following binary value:
+    \begin{verbatim}
+    0000 0000 0001 0000 1000 0000 1011 0011 (two)
+    \end{verbatim}
+    Hint: Figure 2.20 may be helpful.
+    
+    \item[\textbf{2.13}] \textbf{<§§2.2, 2.5>} Provide the instruction type and hexadecimal representation 
+    of the following instruction:
+    \begin{verbatim}
+    sd x5, 32(x30)
+    \end{verbatim}
+
 \end{enumerate}
 
 \end{document}
