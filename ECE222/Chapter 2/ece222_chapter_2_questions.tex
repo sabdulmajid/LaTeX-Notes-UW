@@ -109,7 +109,71 @@
         the proposed change increase the size of an RISC-V assembly program?
     \end{enumerate}
 
+    \item[\textbf{2.22}] \textbf{<§2.10>} Suppose the program counter (PC) is set to 0x20000000.
     
+    \begin{enumerate}
+        \item[\textbf{2.22.1}] What range of addresses can be reached using the RISC-V 
+        jump-and-link (jal) instruction? (In other words, what is the set of possible values 
+        for the PC after the jump instruction executes?)
+        
+        \item[\textbf{2.22.2}] What range of addresses can be reached using the RISC-V 
+        branch if equal (beq) instruction? (In other words, what is the set of possible values 
+        for the PC after the branch instruction executes?)
+    \end{enumerate}
+
+    \item[\textbf{2.23}] \textbf{<§2.7, 2.10>} Consider a proposed new instruction named \texttt{rpt}. This instruction combines 
+    a loop’s condition check and counter decrement into a single instruction. For 
+    example \texttt{rpt x29}, loop would do the following:
+    \begin{verbatim}
+    if (x29 > 0) {
+    x29 = x29 -1;
+    goto loop
+    }
+    \end{verbatim}
+    
+    \begin{enumerate}
+        \item[\textbf{2.23.1}] If this instruction were to be added to the RISC-V 
+        instruction set, what is the most appropriate instruction format?
+        
+        \item[\textbf{2.23.2}] What is the shortest sequence of RISC-V instructions that 
+        performs the same operation?
+    \end{enumerate}
+    
+    \item[\textbf{2.27}] \textbf{<§2.7>} Translate the following loop into C. Assume that the C-level 
+    integer i is held in register \texttt{x5}, \texttt{x6} holds the C-level integer called result, and 
+    \texttt{x10} holds the base address of the integer MemArray.
+    \begin{verbatim}
+    addi x6, x0, 0
+    addi x29, x0, 100
+    LOOP: ld x7, 0(x10)
+    add x5, x5, x7
+    addi x10, x10, 8
+    addi x6, x6, 1
+    blt x6, x29, LOOP
+    \end{verbatim}
+
+    \item[\textbf{2.28}] \textbf{<§2.7>} Rewrite the loop from Exercise 2.27 to reduce the number of 
+    RISC-V instructions executed. Hint: Notice that variable i is used only for loop 
+    control.
+    
+    \item[\textbf{2.36}] \textbf{<§2.10>} Write the RISC-V assembly code that creates the 64-bit constant 
+    0x1122334455667788two and stores that value to register x10.
+    
+    \item[\textbf{2.40}] \textbf{<§§1.6, 2.13>} Assume that for a given program 70\% of the executed instructions are arithmetic, 10\% are load/store, and 20\% are branch.
+    
+    \begin{enumerate}
+        \item[\textbf{2.40.1}] Given this instruction mix and the assumption that an 
+        arithmetic instruction requires two cycles, a load/store instruction takes six cycles, 
+        and a branch instruction takes three cycles, find the average CPI.
+        
+        \item[\textbf{2.40.2}] For a 25\% improvement in performance, how many 
+        cycles, on average, may an arithmetic instruction take if load/store and branch 
+        instructions are not improved at all?
+        
+        \item[\textbf{2.40.3}] For a 50\% improvement in performance, how many 
+        cycles, on average, may an arithmetic instruction take if load/store and branch 
+        instructions are not improved at all?
+    \end{enumerate}
 
 \end{enumerate}
 
